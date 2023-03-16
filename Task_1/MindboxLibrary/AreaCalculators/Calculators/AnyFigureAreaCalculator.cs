@@ -19,16 +19,7 @@ namespace AreaCalculators.Calculators
             if (points.Count < 3)
             {
                 throw new ArgumentOutOfRangeException("This figure doesn't have area. Must be at least 3 points");
-            }
-            //int length = points.Count;
-            //int tempSum = 0; 
-            //for(int i=0; i< length-1; i++ )
-            //{
-            //    tempSum += points[i].X * points[i + 1].Y - points[i].Y * points[i + 1].X; 
-            //}
-            //tempSum += points[length-1].X * points[0].Y - points[length-1].Y * points[0].X;
-
-            //return Math.Abs(tempSum / 2);
+            }            
             points.Add(points[0]);
             return Math.Abs(points
                 .Take(points.Count - 1)
