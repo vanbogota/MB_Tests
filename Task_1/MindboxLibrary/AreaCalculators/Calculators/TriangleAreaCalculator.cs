@@ -16,6 +16,11 @@ namespace AreaCalculators.Calculators
         /// <returns>Triangle area in double type</returns>
         public double CalculateArea(ITriangleFigure figure)
         {
+            if (figure is null)
+            {
+                throw new ArgumentNullException("Figure must not be null");
+            }
+
             double halfP = figure.Perimetr / 2;
 
             return Math.Sqrt(halfP * (halfP - figure.SideA) * (halfP - figure.SideB) * (halfP - figure.SideC)); 
