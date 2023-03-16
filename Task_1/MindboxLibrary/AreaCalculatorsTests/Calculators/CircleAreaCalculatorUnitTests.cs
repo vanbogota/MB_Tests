@@ -3,7 +3,7 @@ using AreaCalculators.Calculators.Interfaces;
 using AreaCalculators.Figures;
 using AreaCalculators.Figures.Interfaces;
 
-namespace AreaCalculatorsTests
+namespace AreaCalculatorsTests.Calculators
 {
     public class CircleAreaCalculatorUnitTests
     {
@@ -18,5 +18,14 @@ namespace AreaCalculatorsTests
             Assert.IsType<double>(result);
             Assert.Equal(314.1592653589793, result);
         }
+
+        [Fact]
+        public void CalculateArea_InputIsEmpty_Throws_ArgumentNullException()
+        {
+            ICircleFugure circle = null;
+            ICircleAreaCalculator calculator = new CircleAreaCalculator();
+
+            Assert.Throws<ArgumentNullException>(() => calculator.CalculateArea(circle));
+        }        
     }
 }

@@ -1,16 +1,16 @@
 ﻿
 using AreaCalculators.Figures;
 
-namespace AreaCalculatorsTests
+namespace AreaCalculatorsTests.Figures
 {
-    public class TriangleFigureUnitTests 
-    {       
+    public class TriangleFigureUnitTests
+    {
 
         [Fact]
         public void Sides_InputIs20_Returns_DoubleType()
         {
             TriangleFigure triangle = new(20, 20, 20);
-            
+
             Assert.IsType<double>(triangle.SideA);
             Assert.IsType<double>(triangle.SideB);
             Assert.IsType<double>(triangle.SideC);

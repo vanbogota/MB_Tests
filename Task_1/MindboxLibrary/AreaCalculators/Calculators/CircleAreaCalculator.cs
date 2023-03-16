@@ -15,6 +15,10 @@ namespace AreaCalculators.Calculators
         /// <returns>Circle area in double type</returns>
         public double CalculateArea(ICircleFugure figure)
         {
+            if (figure is null)
+            {
+                throw new ArgumentNullException("Figure must not be null");
+            }
             var area = Math.PI * figure.Radius * figure.Radius;
             return area;
         }        
