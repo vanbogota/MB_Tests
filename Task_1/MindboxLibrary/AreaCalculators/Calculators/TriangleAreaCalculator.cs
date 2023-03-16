@@ -4,8 +4,16 @@ using AreaCalculators.Figures.Interfaces;
 
 namespace AreaCalculators.Calculators
 {
+    /// <summary>
+    /// Contains methods for triangle area calculation.
+    /// </summary>
     public class TriangleAreaCalculator : ITriangleAreaCalculator
     {
+        /// <summary>
+        /// Calculates triangle area by three sides (the Geron theorem).
+        /// </summary>
+        /// <param name="figure"></param>
+        /// <returns>Triangle area in double type</returns>
         public double CalculateArea(ITriangleFigure figure)
         {
             double halfP = figure.Perimetr / 2;
