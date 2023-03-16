@@ -29,7 +29,7 @@ namespace AreaCalculatorsTests.Calculators
             List<Point> points = new List<Point>()
             {
                 new Point(1,1),
-                new Point(1,5),
+                new Point(1,5),                
                 new Point(5,5),
                 new Point(5,1)
             };
