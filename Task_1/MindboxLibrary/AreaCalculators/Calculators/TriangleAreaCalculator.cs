@@ -21,7 +21,7 @@ namespace AreaCalculators.Calculators
                 throw new ArgumentNullException("Figure must not be null");
             }
 
-            double halfP = figure.Perimetr / 2;
+            double halfP = (figure.SideA + figure.SideB + figure.SideC) / 2;
 
             return Math.Sqrt(halfP * (halfP - figure.SideA) * (halfP - figure.SideB) * (halfP - figure.SideC)); 
         }          

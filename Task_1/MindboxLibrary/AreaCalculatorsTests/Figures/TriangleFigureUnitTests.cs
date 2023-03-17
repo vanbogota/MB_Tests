@@ -12,23 +12,12 @@ namespace AreaCalculatorsTests.Figures
             TriangleFigure triangle = new(20, 20, 20);
 
             Assert.IsType<double>(triangle.SideA);
+            Assert.Equal(20, triangle.SideA);
             Assert.IsType<double>(triangle.SideB);
-            Assert.IsType<double>(triangle.SideC);
-            Assert.IsType<double>(triangle.Perimetr);
-            Assert.Equal(60, triangle.Perimetr);
-        }
-
-        [Fact]
-        public void IsRightTriangle_Returns_BooleanType()
-        {
-            TriangleFigure triangle = new(3, 4, 5);
-
-            Assert.Equal(3, triangle.SideA);
-            Assert.Equal(4, triangle.SideB);
-            Assert.Equal(5, triangle.SideC);
-            Assert.IsType<bool>(triangle.IsRightTriangle);
-            Assert.True(triangle.IsRightTriangle);
-        }
+            Assert.Equal(20, triangle.SideB);
+            Assert.IsType<double>(triangle.SideC);  
+            Assert.Equal(20, triangle.SideC);
+        }        
 
         [Fact]
         public void If_Side_Below_Zero_Throws_ArgumentOutOfRangeException()

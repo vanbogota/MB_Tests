@@ -4,7 +4,6 @@
     {
         double SideA { get; }
         double SideB { get; }
-        double SideC { get; }
-        double Perimetr { get; }
+        double SideC { get; }        
     }
 }
