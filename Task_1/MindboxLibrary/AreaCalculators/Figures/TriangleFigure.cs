@@ -15,6 +15,13 @@ namespace AreaCalculators.Figures
             {
                 throw new ArgumentOutOfRangeException("Three sides must be over 0");
             }
+            if ((sideA+sideB)>sideC &&
+                (sideB+sideC)>sideA &&
+                (sideC+sideA)>sideB)
+            {
+                throw new Exception("It is not a triangle");
+            }
+
             SideA = sideA;
             SideB = sideB;
             SideC = sideC;
