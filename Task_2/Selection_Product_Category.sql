@@ -1,33 +1,31 @@
-/*Вопрос:
-В базе данных MS SQL Server есть продукты и категории. Одному продукту может соответствовать много категорий, в одной категории может быть много продуктов. Напишите SQL запрос для выбора всех пар «Имя продукта – Имя категории». Если у продукта нет категорий, то его имя все равно должно выводиться.
+/*
+	Вопрос №3:
+В базе данных MS SQL Server есть продукты и категории. 
+Одному продукту может соответствовать много категорий, в одной категории может быть много продуктов. 
+Напишите SQL запрос для выбора всех пар «Имя продукта – Имя категории». 
+Если у продукта нет категорий, то его имя все равно должно выводиться.
 
 Решение:
-Предположим, что таблицы Продуктов и Категорий у нас уже в базе существуют.
-Тогда сначала создадим промежуточную таблицу, в которой будут внешние ключи на таблицы Продуктов и Категорий*/
+Таблицы Продуктов и Категорий у нас уже в базе существуют.
+Поэтому перед составлением запроса создадим промежуточную таблицу, в которой будут внешние ключи на таблицы Продуктов и Категорий:
+*/
 
-CREATE TABLE ProductsCategories (
-	products_id  INT null,
-	category_id INT null
+CREATE TABLE dbo.ProductsCategories (
+	ID_Products INT null,
+	ID_Categories INT null,
+	CONSTRAINT FK_ProductsCategories_Products 
+		FOREIGN KEY(ID_Products)
+		REFERENCES dbo.Products(ID),
+	CONSTRAINT FK_ProductsCategories_Categories 
+		FOREIGN KEY(ID_Categories)
+		REFERENCES dbo.Categories(ID)
 );
 
-/*Наполним новую таблицу значениями*/
-
-INSERT INTO 
-	ProductsCategories
-VALUES  (1, 1),
-	(1, 2),
-	(1, 3),
-	(2, 1),
-	(3, 1),
-	(3, 2);
-	
-
-/*SQL запрос для выбора всех пар "Имя продукта - Имя категории"*/
-
+-- SQL запрос для выбора всех пар "Имя продукта - Имя категории"
 SELECT 
-	p.name [Имя продукта], 
-	c.name [Имя категории] 
+	p.Name as "Имя продукта", 
+	c.Name as "Имя категории" 
 FROM 
-	Products p
-	left join ProductsCategories pc on p.id = pc.products_id
-	left join Category c on c.id = pc.category_id
+	dbo.Products as p
+	left join dbo.ProductsCategories as pc on p.ID = pc.ID_Products
+	left join dbo.Category as c on c.ID = pc.ID_Categories
