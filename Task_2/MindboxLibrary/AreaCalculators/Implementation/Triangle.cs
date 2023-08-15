@@ -1,6 +1,6 @@
 ﻿namespace AreaCalculators.Implementation
 {
-    public class Triangle : IShape
+    public class Triangle : Shape
     {
         public Triangle(
             double sideA,
@@ -34,7 +34,7 @@
         /// Calculates triangle area by three sides (the Geron theorem).
         /// </summary>
         /// <returns>Triangle area</returns>
-        public double CalculateArea()
+        public override double CalculateArea()
         {
             double halfP = (SideA + SideB + SideC) / 2;
 

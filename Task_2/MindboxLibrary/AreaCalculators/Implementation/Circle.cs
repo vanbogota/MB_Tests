@@ -1,6 +1,6 @@
 ﻿namespace AreaCalculators.Implementation
 {
-    public class Circle : IShape
+    public class Circle : Shape
     {
         public Circle(double radius)
         {
@@ -16,7 +16,7 @@
         /// Calculates circle area by radius.
         /// </summary>
         /// <returns>Circle area</returns>
-        public double CalculateArea()
+        public override double CalculateArea()
         {
             return Math.PI * Radius * Radius;
         }
